@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ASCII ⇄ Hex (UTF-8)</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1 class="app-title">Conversor ASCII ⇄ Hexadecimal (UTF-8)</h1>
+    <p class="app-subtitle">
+      Converta livremente entre texto (ASCII/Unicode) e bytes em hexadecimal (codificação UTF-8).
+    </p>
+  </header>
+
+  <main class="container grid">
+    <!-- ASCII -> HEX -->
+    <section class="card" aria-labelledby="ascii2hex-title">
+      <h2 id="ascii2hex-title">ASCII/Unicode → Hexadecimal</h2>
+
+      <label for="asciiInput" class="label">Texto de entrada</label>
+      <textarea id="asciiInput" class="input" placeholder="Ex.: Olá, mundo!"></textarea>
+
+      <div class="options">
+        <label class="checkbox">
+          <input type="checkbox" id="hexUppercase" />
+          Saída em maiúsculas
+        </label>
+
+        <label class="select">
+          Separador:
+          <select id="hexSeparator">
+            <option value="">Nenhum</option>
+            <option value=" ">Espaço</option>
+            <option value=":">Dois-pontos</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="btnAsciiToHex" class="btn primary">Converter</button>
+        <button id="btnClearAscii" class="btn">Limpar</button>
+        <button id="btnExampleAscii" class="btn">Exemplo</button>
+      </div>
+
+      <h3 class="result-title">Resultado (Hex)</h3>
+      <textarea id="hexOutput" class="output" readonly></textarea>
+      <div class="result-actions">
+        <button id="btnCopyHex" class="btn">Copiar</button>
+        <span id="copiedHex" class="copied" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <!-- HEX -> ASCII -->
+    <section class="card" aria-labelledby="hex2ascii-title">
+      <h2 id="hex2ascii-title">Hexadecimal → ASCII/Unicode</h2>
+
+      <label for="hexInput" class="label">Hex de entrada</label>
+      <textarea id="hexInput" class="input"
+        placeholder="Ex.: 4f6cC3A12c206d756e646f21&#10;Aceita espaços, quebras de linha e separadores como :"></textarea>
+
+      <p class="help">
+        Dicas: aceita <code>0x</code>, espaços, quebras de linha e <em>:</em>. O número de dígitos (após limpeza) deve ser par.
+      </p>
+
+      <div class="actions">
+        <button id="btnHexToAscii" class="btn primary">Converter</button>
+        <button id="btnClearHex" class="btn">Limpar</button>
+        <button id="btnExampleHex" class="btn">Exemplo</button>
+      </div>
+
+      <div id="hexError" class="error" role="alert" aria-live="assertive"></div>
+
+      <h3 class="result-title">Resultado (Texto)</h3>
+      <textarea id="asciiOutput" class="output" readonly></textarea>
+      <div class="result-actions">
+        <button id="btnCopyAscii" class="btn">Copiar</button>
+        <span id="copiedAscii" class="copied" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <small>
+      Codificação usada: <strong>UTF-8</strong>. Em entradas inválidas, é exibido erro (sem quebrar a página).
+    </small>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
